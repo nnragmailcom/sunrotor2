@@ -12,7 +12,7 @@ class Database
         try
         {
             $this->dbHandler = new PDO( $dbType . ':dbname=' . $dbName . ';host=' . $dbHost, $dbUser, $dbPass );
-            echo '<br />' . '=>[' . __FILE__ . ']' . 'connected to ' . $dbName . '<br />';
+            echo '<br />' . '=>[' . __FILE__ . ']' . ' connected to ' . $dbName . '<br />';
         }
         catch (PDOException $e)
         {
@@ -20,6 +20,21 @@ class Database
         }
 
         return $this;
+    }
+    public function query($query)
+    {
+        try
+        {
+            $obStatement = $this->dbHandler->prepare($query);
+            $obStatement->execute($arPlaceholders = null);
+            echo '<br />' . '=>[' . __FILE__ . ']' . ' get data - success ' . $dbName . '<br />';
+            return $obStatement;
+        }
+        catch (PDOException $e)
+        {
+            file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log',$e->getMessage() . "\n",FILE_APPEND );
+        }
+        return false;
     }
 }
 ?>

@@ -21,12 +21,13 @@ class Database
 
         return $this;
     }
-    public function query($query)
+    public function query($obCrud)
     {
         try
         {
-            $obStatement = $this->dbHandler->prepare($query);
-            $obStatement->execute($arPlaceholders = null);
+            var_dump($preparedPlaceholders);
+            $obStatement = $this->dbHandler->prepare($obCrud->preparedData['sql']);
+            $obStatement->execute($obCrud->preparedData['pplaceholders']);
             echo '<br />' . '=>[' . __FILE__ . ']' . ' get data - success ' . $dbName . '<br />';
             return $obStatement;
         }

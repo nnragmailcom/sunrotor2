@@ -15,36 +15,27 @@ require_once ('core/classes/Item.php');
 $testH = new Database;
 
 $testConn = $testH->connect($dbConfig);
-$testGetData = $testConn->query('SELECT * FROM records WHERE ID=1');
-/*$testPreparer = new Reader(
-    [
-        'filter'=>
-        [
-            'id'=>'3',
-            'name'=>'test',
-        ]
-    ]
-);
 
-echo "<pre>";
-var_dump($testPreparer);
-echo "</pre>";*/
-
-echo "==================== <br />";
 $item = new Item();
+
+//тестируем получение
 $data = $item->GetByFilter
 (
+    $testConn,
     [
         'filter'=>
         [
-			'logic' => 'or',
-            'name' => 'supertest',
+			'logic' => 'and',
+            'name' => 'by script',
             'translit_code' => 'supertest_code',
         ]
     ]
 );
+
+//тестируем добавление
 $addData =
 [
+    $testConn,
     'fields'=>
     [
         'id' => 0,
@@ -58,7 +49,7 @@ $addData =
     ]
 ];
 
-$item->Add($addData);
+$item->Add($testConn,$addData);
 
 echo "<pre>";
 var_dump($data);

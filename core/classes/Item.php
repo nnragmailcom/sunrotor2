@@ -1,31 +1,31 @@
 <?
 class Item
 {
-    public function GetByFilter($arData)
+    public function GetByFilter($handler, $arData)
     {
-        $dBase = new Database();
+        /*$dBase = new Database();
         $h = $dBase->connect([
             'type' => 'mysql',
             'name' => 'sunrotor',
             'host' => '127.0.0.1',
             'user' => 'root',
             'password' => ''
-        ]);
+        ]);*/
         $obReader = new Reader($arData);
-        return $data = $h->query($obReader)->fetchAll();
+        return $data = $handler->query($obReader)->fetchAll();
     }
-    public function Add($arData)
+    public function Add($handler, $arData)
     {
-        $dBase = new Database();
+        /*$dBase = new Database();
         $h = $dBase->connect([
             'type' => 'mysql',
             'name' => 'sunrotor',
             'host' => '127.0.0.1',
             'user' => 'root',
             'password' => ''
-        ]);
+        ]);*/
         $obWriter = new Writer($arData);
-        return $data = $h->query($obWriter);
+        return $data = $handler->query($obWriter);
     }
 }
 ?>

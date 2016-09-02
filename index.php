@@ -16,7 +16,7 @@ $testH = new Database;
 
 $testConn = $testH->connect($dbConfig);
 $testGetData = $testConn->query('SELECT * FROM records WHERE ID=1');
-$testPreparer = new Reader(
+/*$testPreparer = new Reader(
     [
         'filter'=>
         [
@@ -28,7 +28,7 @@ $testPreparer = new Reader(
 
 echo "<pre>";
 var_dump($testPreparer);
-echo "</pre>";
+echo "</pre>";*/
 
 echo "==================== <br />";
 $item = new Item();
@@ -37,7 +37,8 @@ $data = $item->GetByFilter
     [
         'filter'=>
         [
-            //'id' => '1',
+			'logic' => 'or',
+            'name' => 'supertest',
             'translit_code' => 'supertest_code',
         ]
     ]

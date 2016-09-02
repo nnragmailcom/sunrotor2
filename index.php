@@ -39,7 +39,7 @@ $addData =
     'fields'=>
     [
         'id' => 0,
-        'name' => 'by script',
+        'name' => 'by345345 script',
         'translit_code' => 'sozdano skriptom',
         'preview_text' => 'hello',
         'detail_text' => 'hello hello hello hello hello hello',
@@ -51,7 +51,6 @@ $addData =
 $item->Add($testConn,$addData);
 
 //тестируем обновление
-
 $updateData =
 [
     $testConn,
@@ -68,8 +67,16 @@ $updateData =
     ]
 ];
 
-$item->Update($testConn,$updateData);
+//$item->Update($testConn,$updateData);
 
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
+//тестируем удаление
+$delData =
+[
+    $testConn,
+    'fields'=>
+    [
+        'id'=>4,
+    ]
+];
+
+//$item->Delete($testConn,$delData);

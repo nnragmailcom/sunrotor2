@@ -16,5 +16,10 @@ class Item
         $obUpdater = new Writer($arData,'update');
         return $data = $handler->query($obUpdater);
     }
+    public function Delete($handler,$arData)
+    {
+        $obDeleter = new Writer($arData,'delete');
+        return $data = $handler->query($obDeleter);
+    }
 }
 ?>

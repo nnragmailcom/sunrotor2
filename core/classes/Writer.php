@@ -42,6 +42,11 @@ class Writer extends DataPreparer
                 }
                 $sSql = 'UPDATE records SET ' . implode(',',$arUpdExprs) . ' WHERE ID=' . $arWetData['fields']['id'];
             }
+            elseif ( $this->for == 'delete' )
+            {
+                $sSql = 'DELETE FROM records WHERE ID=' . $arWetData['fields']['id'];
+                echo $sSql;
+            }
 
             $arPrepared =
             [

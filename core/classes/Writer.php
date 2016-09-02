@@ -1,9 +1,11 @@
 <?
 class Writer extends DataPreparer
 {
-    public function __construct($arData)
+    public function __construct($arData, $for = 'add')
     {
+        $this->for = $for;
         $this->preparedData = $this->prepare($arData);
+
     }
 
     public function prepare($arWetData)
@@ -16,14 +18,31 @@ class Writer extends DataPreparer
         }
         else
         {
-            foreach ( $arWetData['fields'] as $key => $fieldVal )
+            if ( $this->for == 'add' )
             {
-                $arSqlKeys[] = strtoupper($key);
-                $arPreparedPlaceholders[":" . md5($fieldVal)] = $fieldVal;
+                foreach ( $arWetData['fields'] as $key => $fieldVal )
+                {
+                    $arSqlKeys[] = strtoupper($key);
+                    $arPreparedPlaceholders[":" . md5($fieldVal)] = $fieldVal;
+                }
+                $sSql = 'INSERT INTO records( ' . implode(',',$arSqlKeys) . ') VALUES ( ' . implode(',',array_keys($arPreparedPlaceholders)) . ')';
+            }
+            elseif ($this->for == 'update')
+            {
+                if ( !isset($arWetData['fields']['id']) )
+                {
+                    file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log','Неверно заданы данные для Update - отсутствует ключ \'id\'' . "\n",FILE_APPEND );
+                    return false;
+                }
+                foreach ( $arWetData['fields'] as $key => $fieldVal )
+                {
+                    $arUpdExprs[] = strtoupper($key) . '=' . ":" . md5($fieldVal);
+                    $arPreparedPlaceholders[":" . md5($fieldVal)] = $fieldVal;
+
+                }
+                $sSql = 'UPDATE records SET ' . implode(',',$arUpdExprs) . ' WHERE ID=' . $arWetData['fields']['id'];
             }
 
-            $sSql = 'INSERT INTO records( ' . implode(',',$arSqlKeys) . ') VALUES ( ' . implode(',',array_keys($arPreparedPlaceholders)) . ')';
-            var_dump ($sSql);
             $arPrepared =
             [
                 'sql' => $sSql,

@@ -1,21 +1,8 @@
 <?
-
-echo 'hello!';
-
-require_once ('config/db.php');
-//Временно, в будущем будет заменено автозагрузкой
-require_once ('core/interfaces/Data.php');
-
-require_once ('core/classes/Database.php');
-require_once ('core/classes/DataPreparer.php');
-require_once ('core/classes/Writer.php');
-require_once ('core/classes/Reader.php');
-require_once ('core/classes/Item.php');
+include 'core/includes/header.php';
 
 $testH = new Database;
-
 $testConn = $testH->connect($dbConfig);
-
 $item = new Item();
 
 //тестируем получение

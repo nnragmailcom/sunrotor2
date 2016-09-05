@@ -48,7 +48,16 @@ class Reader extends DataPreparer
             $arValues[] = strtoupper($filterKey) . '=' . ':' . md5($filterVal);
         }
 
-        $sSql = 'SELECT * FROM records WHERE ' . implode(' ' . $logic . ' ',$arValues) . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
+		if ( is_array($arValues) && !empty($arValues) )
+		{
+			$filterString = implode(' ' . $logic . ' ',$arValues);
+		}
+		else
+		{
+			$filterString = '';
+		}
+
+        $sSql = 'SELECT * FROM records ' . $filterString . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
 		echo $sSql;
 		$arPrepared =
         [

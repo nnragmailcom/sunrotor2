@@ -26,8 +26,7 @@ $data = $item->GetByFilter
         'filter'=>
         [
 			'logic' => 'and',
-            /*'name' => '',*/
-            'translit_code' => 'sozdano skriptom',
+            /*'translit_code' => 'sozdano skriptom',*/
         ],
 		'sort'=>
 		[

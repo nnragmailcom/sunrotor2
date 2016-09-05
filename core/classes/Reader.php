@@ -50,7 +50,7 @@ class Reader extends DataPreparer
 
 		if ( is_array($arValues) && !empty($arValues) )
 		{
-			$filterString = implode(' ' . $logic . ' ',$arValues);
+			$filterString = 'WHERE ' . implode(' ' . $logic . ' ',$arValues);
 		}
 		else
 		{

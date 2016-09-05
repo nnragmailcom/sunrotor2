@@ -8,7 +8,16 @@ class Reader extends DataPreparer
     }
     public function prepare($arWetData)
     {
-        $arPlaceholders = [];
+
+		if ( !isset($arWetData['sort']) )
+		{
+			$arWetData['sort'] =
+			[
+				'by' => 'time',
+				'direction' => 'desc',
+			];
+		}
+		$arPlaceholders = [];
         if ( !isset($arWetData['filter']) )
         {
             file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log','Неверно задан фильтр - отсутствует ключ \'filter\'' . "\n",FILE_APPEND );
@@ -35,18 +44,15 @@ class Reader extends DataPreparer
 			{
 				continue;
 			}
-			//$arPlaceholders[$filterKey]['clear'] = $filterVal;
-            //$arPlaceholders['encrypted'][$filterKey] = ':' . md5($filterVal);
-            $arPreparedPlaceholders[':' . md5($filterVal)] =  $filterVal;
+			$arPreparedPlaceholders[':' . md5($filterVal)] =  $filterVal;
             $arValues[] = strtoupper($filterKey) . '=' . ':' . md5($filterVal);
         }
 
-        $sSql = 'SELECT * FROM records WHERE ' . implode(' ' . $logic . ' ',$arValues);
+        $sSql = 'SELECT * FROM records WHERE ' . implode(' ' . $logic . ' ',$arValues) . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
 		echo $sSql;
 		$arPrepared =
         [
             'sql' => $sSql,
-            //'placeholders' => $arPlaceholders,
             'pplaceholders' => $arPreparedPlaceholders,
         ];
 

@@ -26,12 +26,19 @@ $data = $item->GetByFilter
         'filter'=>
         [
 			'logic' => 'and',
-            'name' => 'by script',
-            'translit_code' => 'supertest_code',
-        ]
+            /*'name' => '',*/
+            'translit_code' => 'sozdano skriptom',
+        ],
+		'sort'=>
+		[
+			'by' => 'id',
+			'direction' => 'asc',
+		]
     ]
 );
-
+echo "<pre>";
+var_dump($data);
+echo "</pre>";
 //тестируем добавление
 $addData =
 [
@@ -39,7 +46,7 @@ $addData =
     'fields'=>
     [
         'id' => 0,
-        'name' => 'by345345 script',
+        'name' => 'newnewnew2423423423423',
         'translit_code' => 'sozdano skriptom',
         'preview_text' => 'hello',
         'detail_text' => 'hello hello hello hello hello hello',
@@ -48,7 +55,7 @@ $addData =
         'time' => null
     ]
 ];
-$item->Add($testConn,$addData);
+//$item->Add($testConn,$addData);
 
 //тестируем обновление
 $updateData =

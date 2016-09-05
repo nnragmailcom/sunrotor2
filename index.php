@@ -1,6 +1,13 @@
 <?
 include 'core/includes/header.php';
 
+$page = new Page(new IndexPage());
+
+
+
+
+
+
 $testH = new Database;
 $testConn = $testH->connect($dbConfig);
 $item = new Item();
@@ -22,9 +29,7 @@ $data = $item->GetByFilter
 		]
     ]
 );
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
+$page->generate($data);
 //тестируем добавление
 $addData =
 [

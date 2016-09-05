@@ -58,7 +58,6 @@ class Reader extends DataPreparer
 		}
 
         $sSql = 'SELECT * FROM records ' . $filterString . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
-		echo $sSql;
 		$arPrepared =
         [
             'sql' => $sSql,

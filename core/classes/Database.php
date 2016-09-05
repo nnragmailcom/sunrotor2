@@ -12,7 +12,6 @@ class Database
         try
         {
             $this->dbHandler = new PDO( $dbType . ':dbname=' . $dbName . ';host=' . $dbHost, $dbUser, $dbPass );
-            echo '<br />' . '=>[' . __FILE__ . ']' . ' connected to ' . $dbName . '<br />';
         }
         catch (PDOException $e)
         {
@@ -25,10 +24,8 @@ class Database
     {
         try
         {
-            var_dump($preparedPlaceholders);
             $obStatement = $this->dbHandler->prepare($obCrud->preparedData['sql']);
             $obStatement->execute($obCrud->preparedData['pplaceholders']);
-            echo '<br />' . '=>[' . __FILE__ . ']' . ' get data - success ' . $dbName . '<br />';
             return $obStatement;
         }
         catch (PDOException $e)

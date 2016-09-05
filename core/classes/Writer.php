@@ -45,7 +45,7 @@ class Writer extends DataPreparer
             elseif ( $this->for == 'delete' )
             {
                 $sSql = 'DELETE FROM records WHERE ID=' . $arWetData['fields']['id'];
-                echo $sSql;
+
             }
 
             $arPrepared =

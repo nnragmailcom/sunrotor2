@@ -29,13 +29,17 @@ else
 
 		$queryPage = $_POST['page'];
 
-		if ( $queryPage == 'index' )
+		$className = ucfirst($queryPage) . 'Page';
+		if ( !class_exists($className) )
 		{
-			$className = 'IndexPage';
+			redirect301('/404.php');
 		}
-		echo $className;
 		$obView = new $className();
 
+		echo "<pre>";
+		var_dump($className);
+		var_dump($obView);
+		echo "</pre>";
 		$page = new Page($obView);
 		$page->generate($data);
 

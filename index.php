@@ -15,7 +15,7 @@ $(function()
 			'dataType' : 'html',
 			'success' : function (data)
 			{
-				$('div.items').html(data);
+				$('div.container').html(data);
 
 			},
 			'error' : function()

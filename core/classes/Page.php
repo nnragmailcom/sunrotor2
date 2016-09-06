@@ -4,6 +4,7 @@ class Page implements View
 	public function __construct($obView)
 	{
 		$this->view = $obView;
+		//return $this;
 	}
 
 

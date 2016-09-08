@@ -1,7 +1,7 @@
 <div class="items-container">
 	<?foreach ( $arData as $key=>$arItem ):?>
 		<div class="item">
-			<a href="#"><?=$arItem['NAME']?></a>
+			<a data-id=<?=$arItem['ID']?> href="/detail/<?=$arItem['ID']?>"><?=$arItem['NAME']?></a>
 		</div>
 	<?endforeach;?>
 </div>

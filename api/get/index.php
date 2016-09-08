@@ -19,7 +19,7 @@ else
 			[
 				'filter'=>
 				[
-					'logic'=>'or',
+					'logic'=>'and',
 					'id'=>'2',
 					'name'=>'supertest супертест'
 				]
@@ -35,11 +35,6 @@ else
 			redirect301('/404.php');
 		}
 		$obView = new $className();
-
-		echo "<pre>";
-		var_dump($className);
-		var_dump($obView);
-		echo "</pre>";
 		$page = new Page($obView);
 		$page->generate($data);
 

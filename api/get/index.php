@@ -1,12 +1,12 @@
 <?
 include $_SERVER['DOCUMENT_ROOT'] . '/core/includes/header.php';
-if ( !$_POST['is_ajax'] )
+if ( !$_REQUEST['is_ajax'] )
 {
-	redirect301('/404.php');
+	redirect('/404.php', '404');
 }
 else
 {
-	if ( $_POST['is_ajax'] == 'Y' )
+	if ( $_REQUEST['is_ajax'] == 'Y' )
 	{
 
 		$db = new Database();
@@ -19,7 +19,7 @@ else
 			[
 				'filter'=>
 				[
-					'logic'=>'and',
+					'logic'=>'or',
 					'id'=>'2',
 					'name'=>'supertest супертест'
 				]
@@ -27,7 +27,7 @@ else
 		);
 
 
-		$queryPage = $_POST['page'];
+		$queryPage = $_REQUEST['page'];
 
 		$className = ucfirst($queryPage) . 'Page';
 		if ( !class_exists($className) )

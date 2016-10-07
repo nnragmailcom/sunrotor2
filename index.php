@@ -1,16 +1,17 @@
 <?include 'templates/header.php'?>
-<?echo "<pre>";
+<?/*echo "<pre>";
 var_dump($_SERVER);
-echo "</pre>"; die()?>
+echo "</pre>"; die()*/?>
 
 <script>
 $(function()
 {
-	$.ajax
+    console.log('!');
+    $.ajax
 	(
 		{
 			'url' : '/api/get/',
-			'type' : 'post',
+			'type' : 'get',
 			'data' :
 			{
 				'is_ajax' : 'Y',

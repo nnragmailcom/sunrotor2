@@ -1,7 +1,7 @@
 <?
 class Router
 {
-	public function getUrl()
+	public static function getUrl()
 	{
 		$serverData = $_SERVER;
 		$ssl = ( isset($serverData['HTTPS']) && $serverData['HTTPS'] == 'on'  );
@@ -15,7 +15,7 @@ class Router
 
 		return $protocol . '://' . $host . $uri;
 	}
-	public function getUrlPart($url, $partNum)
+	public static function getUrlPart($url, $partNum)
 	{
 		$url = substr( $url, strpos($url,'//') + 2, strlen($url));
 		$exploded = explode('/',$url);

@@ -10,6 +10,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/core/classes/Reader.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/core/classes/Item.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/core/classes/Page.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/core/classes/IndexPage.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/core/classes/Router.php');
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/local/functions/functions.php');
 ?>

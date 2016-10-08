@@ -19,9 +19,7 @@ else
 			[
 				'filter'=>
 				[
-					'logic'=>'or',
-					'id'=>'2',
-					'name'=>'supertest супертест'
+
 				]
 			]
 		);
@@ -32,7 +30,7 @@ else
 		$className = ucfirst($queryPage) . 'Page';
 		if ( !class_exists($className) )
 		{
-			redirect301('/404.php');
+			redirect('/404.php', '404');
 		}
 		$obView = new $className();
 		$page = new Page($obView);

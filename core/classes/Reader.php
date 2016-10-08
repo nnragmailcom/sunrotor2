@@ -65,6 +65,13 @@ class Reader extends DataPreparer
         ];
 
         return $arPrepared;
+
+        /*
+            ['filter'=>[
+            'id'=>''
+            ...
+            ]]
+        */
     }
 }
 ?>

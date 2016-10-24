@@ -2,7 +2,6 @@
 <script>
 $(function()
 {
-    console.log('!');
     $.ajax
 	(
 		{

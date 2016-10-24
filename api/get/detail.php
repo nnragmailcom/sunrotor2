@@ -5,7 +5,7 @@ if ( !$_REQUEST['is_ajax'] )
 	redirect('/404.php', '404');
 }
 else
-{
+{ 
     $curUrl = Router::getUrl('ref');
     $id = Router::getUrlPart($curUrl,  4);
 

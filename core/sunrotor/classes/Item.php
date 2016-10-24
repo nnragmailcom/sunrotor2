@@ -1,4 +1,5 @@
 <?
+namespace sunrotor\classes;
 class Item
 {
     public function GetByFilter($handler, $arData)

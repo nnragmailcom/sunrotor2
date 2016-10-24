@@ -1,4 +1,5 @@
 <?
+namespace sunrotor\classes;
 class Page implements View
 {
 	public function __construct($obView)

@@ -1,4 +1,5 @@
 <?
+namespace sunrotor\classes;
 class Database
 {
     public function connect($connectParams)

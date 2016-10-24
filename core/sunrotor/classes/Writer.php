@@ -1,4 +1,5 @@
 <?
+namespace sunrotor\classes;
 class Writer extends DataPreparer
 {
     public function __construct($arData, $for = 'add')

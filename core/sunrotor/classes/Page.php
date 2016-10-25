@@ -1,6 +1,6 @@
 <?
 namespace core\sunrotor\classes;
-class Page implements View
+class Page implements \core\sunrotor\interfaces\View
 {
 	public function __construct($obView)
 	{

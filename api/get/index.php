@@ -27,13 +27,13 @@ else
 
 		$queryPage = $_REQUEST['page'];
 
-		$className = ucfirst($queryPage) . 'Page';
+		$className = "core\sunrotor\classes\\" . ucfirst($queryPage) . 'Page';
 		if ( !class_exists($className) )
 		{
 			redirect('/404.php', '404');
 		}
 		$obView = new $className();
-		$page = new Page($obView);
+		$page = new core\sunrotor\classes\Page($obView);
 		$page->generate($data);
 
 	}

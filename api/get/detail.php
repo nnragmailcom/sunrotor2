@@ -27,7 +27,7 @@ else
 
     $queryPage = $_REQUEST['page'];
 
-    $className = "sunrotor\classes\\" . ucfirst($queryPage) . 'Page';
+    $className = "core\sunrotor\classes\\" . ucfirst($queryPage) . 'Page';
     if ( !class_exists($className) )
     {
         redirect('/404.php', '404');

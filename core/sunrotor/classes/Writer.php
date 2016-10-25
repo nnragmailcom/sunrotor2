@@ -27,7 +27,8 @@ class Writer extends DataPreparer
                     $arPreparedPlaceholders[":" . md5($fieldVal)] = $fieldVal;
                 }
                 $sSql = 'INSERT INTO records( ' . implode(',',$arSqlKeys) . ') VALUES ( ' . implode(',',array_keys($arPreparedPlaceholders)) . ')';
-            }
+				file_put_contents ($_SERVER["DOCUMENT_ROOT"] . "/draft.log", print_r($sSql,1), FILE_APPEND);
+			}
             elseif ($this->for == 'update')
             {
                 if ( !isset($arWetData['fields']['id']) )

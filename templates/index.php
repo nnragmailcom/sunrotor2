@@ -5,3 +5,4 @@
 		</div>
 	<?endforeach;?>
 </div>
+<a href="/inside/add/">Inside</a>

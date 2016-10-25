@@ -1,4 +1,5 @@
 <?include 'templates/header.php'?>
+<?include $_SERVER['DOCUMENT_ROOT'] . '/core/includes/header.php';?>
 <script>
 $(function()
 {

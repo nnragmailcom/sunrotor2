@@ -1,5 +1,5 @@
 <?
-namespace sunrotor\classes;
+namespace core\sunrotor\classes;
 class IndexPage extends Page
 {
 	public function __construct()

@@ -5,13 +5,13 @@ if ( !$_REQUEST['is_ajax'] )
 	redirect('/404.php', '404');
 }
 else
-{ 
-    $curUrl = Router::getUrl('ref');
-    $id = Router::getUrlPart($curUrl,  4);
+{
+    $curUrl = core\sunrotor\classes\Router::getUrl('ref');
+    $id = core\sunrotor\classes\Router::getUrlPart($curUrl,  4);
 
-    $db = new Database();
+    $db = new core\sunrotor\classes\Database();
     $connection = $db->connect($dbConfig);
-    $item = new Item();
+    $item = new core\sunrotor\classes\Item();
 
     $data = $item->GetByFilter
     (
@@ -27,13 +27,13 @@ else
 
     $queryPage = $_REQUEST['page'];
 
-    $className = ucfirst($queryPage) . 'Page';
+    $className = "sunrotor\classes\\" . ucfirst($queryPage) . 'Page';
     if ( !class_exists($className) )
     {
         redirect('/404.php', '404');
     }
     $obView = new $className();
-    $page = new Page($obView);
+    $page = new core\sunrotor\classes\Page($obView);
     $page->generate($data);
 
 

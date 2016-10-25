@@ -1,5 +1,5 @@
 <?
-namespace sunrotor\classes;
+namespace core\sunrotor\classes;
 class Database
 {
     public function connect($connectParams)
@@ -12,9 +12,9 @@ class Database
 
         try
         {
-            $this->dbHandler = new PDO( $dbType . ':dbname=' . $dbName . ';host=' . $dbHost, $dbUser, $dbPass );
+            $this->dbHandler = new \PDO( $dbType . ':dbname=' . $dbName . ';host=' . $dbHost, $dbUser, $dbPass );
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log',$e->getMessage() . "\n",FILE_APPEND );
         }
@@ -29,7 +29,7 @@ class Database
             $obStatement->execute($obCrud->preparedData['pplaceholders']);
             return $obStatement;
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log',$e->getMessage() . "\n",FILE_APPEND );
         }

@@ -9,9 +9,9 @@ else
 	if ( $_REQUEST['is_ajax'] == 'Y' )
 	{
 
-		$db = new Database();
+		$db = new core\sunrotor\classes\Database();
 		$connection = $db->connect($dbConfig);
-		$item = new Item();
+		$item = new core\sunrotor\classes\Item();;
 
 		$data = $item->GetByFilter
 		(

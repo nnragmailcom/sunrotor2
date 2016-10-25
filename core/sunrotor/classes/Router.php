@@ -1,5 +1,5 @@
 <?
-namespace sunrotor\classes;
+namespace core\sunrotor\classes;
 class Router
 {
 	public static function getUrl($addrSource = 'uri')

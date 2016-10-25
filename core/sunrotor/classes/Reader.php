@@ -1,5 +1,5 @@
 <?
-namespace sunrotor\classes;
+namespace core\sunrotor\classes;
 class Reader extends DataPreparer
 {
     public function __construct($arData)

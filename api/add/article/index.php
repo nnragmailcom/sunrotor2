@@ -1,4 +1,3 @@
-
 <?
 include $_SERVER['DOCUMENT_ROOT'] . '/core/includes/header.php';
 
@@ -29,6 +28,6 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_article' )
 	];
 }
 
-$isAdd = $item->Add($connection, $addFields);
+$isAdd = $item->Add($connection, $arAddFields);
 redirect("/");
 ?>

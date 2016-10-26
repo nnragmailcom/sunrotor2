@@ -14,7 +14,7 @@ class Writer extends DataPreparer
         $arSqlKeys = [];
         if ( !isset($arWetData['fields']) )
         {
-            file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log','Неверно задан фильтр - отсутствует ключ \'filter\'' . "\n",FILE_APPEND );
+            file_put_contents( $_SERVER['DOCUMENT_ROOT'] . '/errors.log','Неверно задан фильтр - отсутствует ключ \'fields\'' . "\n",FILE_APPEND );
             return false;
         }
         else

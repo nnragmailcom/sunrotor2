@@ -48,6 +48,7 @@ class File
 
 		return $arPreparedFiles;
 	}
+
 	public function placeUploadedFile($tmpName, $name, $to = "/uploads/" )
 	{
 		try
@@ -60,6 +61,12 @@ class File
 			return false;
 		}
 	}
+
+	public function getUploadPath()
+	{
+		return self::$uploadPath;
+	}
+
 
 
 }

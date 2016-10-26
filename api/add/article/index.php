@@ -8,12 +8,7 @@ $file = new core\sunrotor\classes\File();
 
 if ( isset($_POST['action']) && $_POST['action'] == 'add_article' )
 {
-	echo "<pre>";
-	var_dump($_POST);
-	echo "files:";
-	var_dump($_FILES);
-	//die();
-	echo "</pre>";
+	
 	$arFiles = $_FILES;
 	$arPreparedFiles = $file->prepareUploadedFiles($arFiles);
 	foreach ( $arPreparedFiles as $fieldName=>$arFile )
@@ -25,8 +20,8 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_article' )
 	$previewTxt = $_POST['article_preview_txt'];
 	$detailTxt = $_POST['article_detail_txt'];
 	$translitCode = 'temporary_dump_' . $name;
-	$previewPic = $file::uploadPath . $arPreparedFiles["article_preview_pic"]["full_name"];
-	$detailPic = $file::uploadPath . $arPreparedFiles["article_detail_pic"]["full_name"];
+	$previewPic = $file->getUploadPath() . $arPreparedFiles["article_preview_pic"]["full_name"];
+	$detailPic = $file->getUploadPath() . $arPreparedFiles["article_detail_pic"]["full_name"];
 
 	$arAddFields =
 	[

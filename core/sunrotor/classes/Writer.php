@@ -26,8 +26,7 @@ class Writer extends DataPreparer
                     $arSqlKeys[] = strtoupper($key);
                     $arPreparedPlaceholders[":" . md5($fieldVal)] = $fieldVal;
                 }
-                $sSql = 'INSERT INTO records( ' . implode(',',$arSqlKeys) . ') VALUES ( ' . implode(',',array_keys($arPreparedPlaceholders)) . ')';
-				file_put_contents ($_SERVER["DOCUMENT_ROOT"] . "/draft.log", print_r($sSql,1), FILE_APPEND);
+                $sSql = 'INSERT INTO' . " #TABLE# " . '( ' . implode(',',$arSqlKeys) . ') VALUES ( ' . implode(',',array_keys($arPreparedPlaceholders)) . ')';
 			}
             elseif ($this->for == 'update')
             {
@@ -46,7 +45,7 @@ class Writer extends DataPreparer
             }
             elseif ( $this->for == 'delete' )
             {
-                $sSql = 'DELETE FROM records WHERE ID=' . $arWetData['fields']['id'];
+                $sSql = 'DELETE FROM ' . "#TABLE#" . ' WHERE ID=' . $arWetData['fields']['id'];
 
             }
 

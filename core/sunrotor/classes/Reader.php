@@ -58,7 +58,7 @@ class Reader extends DataPreparer
 			$filterString = '';
 		}
 
-        $sSql = 'SELECT * FROM records ' . $filterString . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
+        $sSql = 'SELECT * FROM ' . "#TABLE#" . " " .   $filterString . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
 		$arPrepared =
         [
             'sql' => $sSql,
@@ -66,13 +66,6 @@ class Reader extends DataPreparer
         ];
 
         return $arPrepared;
-
-        /*
-            ['filter'=>[
-            'id'=>''
-            ...
-            ]]
-        */
-    }
+	}
 }
 ?>

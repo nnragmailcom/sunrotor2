@@ -21,12 +21,18 @@ class Database
 
         return $this;
     }
+	public function setTableName($tableName)
+	{
+		$this->tableName = $tableName;
+		return $this;
+	}
     public function query($obCrud)
     {
         try
         {
-            $obStatement = $this->dbHandler->prepare($obCrud->preparedData['sql']);
-            $obStatement->execute($obCrud->preparedData['pplaceholders']);
+			$sql = str_replace("#TABLE#",$this->tableName,$obCrud->preparedData['sql']);
+			$obStatement = $this->dbHandler->prepare($sql);
+			$obStatement->execute($obCrud->preparedData['pplaceholders']);
             return $obStatement;
         }
         catch (\PDOException $e)

@@ -5,12 +5,12 @@ class Item
     public function GetByFilter($handler, $arData)
     {
         $obReader = new Reader($arData);
-        return $data = $handler->query($obReader)->fetchAll();
+        return $data = $handler->setTableName("records")->query($obReader)->fetchAll();
     }
     public function Add($handler, $arData)
     {
         $obWriter = new Writer($arData);
-        return $data = $handler->query($obWriter);
+        return $data = $handler->setTableName("records")->query($obWriter);
     }
     public function Update($handler,$arData)
     {

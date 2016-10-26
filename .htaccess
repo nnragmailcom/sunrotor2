@@ -4,4 +4,4 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^detail/[0-9]+/$ /detail/ [L]
-RewriteRule ^inside/.*$ /auth/ [L]
+#RewriteRule ^inside/.*$ /auth/ [L]

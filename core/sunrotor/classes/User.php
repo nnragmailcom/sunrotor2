@@ -4,10 +4,10 @@ namespace core\sunrotor\classes;
 class User extends Item
 {
 
-	public function __construct()
+	public function __construct($dbConf)
 	{
-		$db = new core\sunrotor\classes\Database();
-		$this->connection = $db->connect($dbConfig);
+		$db = new Database();
+		$this->connection = $db->connect($dbConf);
 
 	}
 	public function getByFilter($handler, $arData)
@@ -22,20 +22,23 @@ class User extends Item
 		$_SESSION['sunrotor_uid'] = $uid;
 	}
 
-	public function logOut($uid)
+	public function logOut()
 	{
-		session_close();
+		//session_abort();
 		unset($_SESSION['sunrotor_uid']);
 	}
 
-	public function isAuthorized($uid)
+	public function isAuthorized()
 	{
+		//session_start();
 		$arUser = $this->getByFilter
 		(
 			$this->connection,
-			'filter'=>
 			[
-				'id'=>$uid
+				'filter'=>
+				[
+					'id'=>$_SESSION['sunrotor_uid'],
+				],
 			]
 		);
 

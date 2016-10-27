@@ -1,5 +1,5 @@
-<?require_once('../../templates/header.php')?>
-<?include $_SERVER['DOCUMENT_ROOT'] . '/core/includes/header.php';?>
+<?require_once('../../templates/header.php');
+include $_SERVER['DOCUMENT_ROOT'] . '/core/includes/header.php';?>
 <script>
 $(function()
 {

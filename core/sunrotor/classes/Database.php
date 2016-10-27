@@ -31,6 +31,7 @@ class Database
         try
         {
 			$sql = str_replace("#TABLE#",$this->tableName,$obCrud->preparedData['sql']);
+			echo $sql;
 			$obStatement = $this->dbHandler->prepare($sql);
 			$obStatement->execute($obCrud->preparedData['pplaceholders']);
             return $obStatement;

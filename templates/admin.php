@@ -9,7 +9,7 @@
 	<label for="article_detail_txt">Article detail text</label> <br>
 	<textarea name="article_detail_txt" rows="8" cols="40"></textarea> <br>
 
-	<input type="hidden" name="MAX_FILE_SIZE" value="300000" />
+
 
 	<label for="article_preview_pic">Article preview pic</label> <br>
 	<input type="file" name="article_preview_pic"><br>

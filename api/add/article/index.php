@@ -6,9 +6,12 @@ $connection = $db->connect($dbConfig);
 $item = new core\sunrotor\classes\Item();
 $file = new core\sunrotor\classes\File();
 
+$user = new core\sunrotor\classes\User($dbConfig);
+
+
 if ( isset($_POST['action']) && $_POST['action'] == 'add_article' )
 {
-	
+
 	$arFiles = $_FILES;
 	$arPreparedFiles = $file->prepareUploadedFiles($arFiles);
 	foreach ( $arPreparedFiles as $fieldName=>$arFile )
@@ -37,6 +40,15 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_article' )
 	];
 }
 
-$isAdd = $item->Add($connection, $arAddFields);
-redirect("/");
+session_start();
+if ( $user->isAuthorized() )
+{
+	$isAdd = $item->Add($connection, $arAddFields);
+	redirect("/");
+}
+else
+{
+	die('Denied');
+}
+
 ?>

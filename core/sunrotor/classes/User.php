@@ -13,7 +13,7 @@ class User extends Item
 	public function getByFilter($handler, $arData)
 	{
 		$obReader = new Reader($arData);
-        return $data = $handler->setTableName("users")->query($obReader)->fetchAll();
+    return $data = $handler->setTableName("users")->query($obReader)->fetchAll();
 	}
 
 	public function Authorize($uid)

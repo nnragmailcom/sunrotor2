@@ -1,11 +1,5 @@
 <?require_once dirname(__DIR__) . '/core/includes/header.php'?>
-<?$user = new core\sunrotor\classes\User([
-	'type' => 'mysql',
-	'name' => 'sunrotor',
-	'host' => '127.0.0.1',
-	'user' => 'root',
-	'password' => ''
-]);?>
+<?$user = new core\sunrotor\classes\User($dbConfig);?>
 <?session_start();?>
 <div class="items-container">
 	<?foreach ( $arData as $key=>$arItem ):?>

@@ -59,12 +59,13 @@ class Reader extends DataPreparer
 		}
 
         $sSql = 'SELECT * FROM ' . "#TABLE#" . " " .   $filterString . ' ORDER BY ' . strtoupper($arWetData['sort']['by']) . ' ' . strtoupper($arWetData['sort']['direction']);
-		$arPrepared =
+        //echo $sSql;
+    $arPrepared =
         [
             'sql' => $sSql,
             'pplaceholders' => $arPreparedPlaceholders,
         ];
-
+        
         return $arPrepared;
 	}
 }

@@ -1,5 +1,6 @@
 <?
 include $_SERVER['DOCUMENT_ROOT'] . '/core/includes/header.php';
+
 if ( !$_REQUEST['is_ajax'] )
 {
 	redirect('/404.php', '404');
@@ -8,7 +9,6 @@ else
 {
 	if ( $_REQUEST['is_ajax'] == 'Y' )
 	{
-
 		$db = new core\sunrotor\classes\Database();
 		$connection = $db->connect($dbConfig);
 		$item = new core\sunrotor\classes\Item();;
@@ -23,7 +23,7 @@ else
 				]
 			]
 		);
-
+		
 
 		$queryPage = $_REQUEST['page'];
 

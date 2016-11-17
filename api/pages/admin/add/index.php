@@ -7,6 +7,14 @@ if ( !$_REQUEST['is_ajax'] &&  $_POST['action'] != 'sendauthinfo')
 }
 elseif ( $_REQUEST['is_ajax'] == 'Y' || $_POST['action'] == 'sendauthinfo'  )
 {
+	$dbConfig =
+	[
+	  'type' => 'mysql',
+	  'name' => 'sunrotor',
+	  'host' => 'localhost',
+	  'user' => 'crs',
+	  'password' => '@Center12Of12Cyclone12@',
+	];
 
 	$db = new core\sunrotor\classes\Database();
 	$connection = $db->connect($dbConfig);
@@ -14,12 +22,8 @@ elseif ( $_REQUEST['is_ajax'] == 'Y' || $_POST['action'] == 'sendauthinfo'  )
 
 	if ( $_POST['action'] && $_POST['action'] == 'sendauthinfo' )
 	{
-		/*echo '123';
-		var_dump($_POST);
-		die();*/
 		$login = $_POST['login'];
 		$pass = $_POST['password'];
-
 		$arUser = $obUser->getByFilter
 		(
 			$obUser->connection,
@@ -30,10 +34,7 @@ elseif ( $_REQUEST['is_ajax'] == 'Y' || $_POST['action'] == 'sendauthinfo'  )
 				],
 			]
 		);
-
-
-		$isPassCorrect = password_verify($pass,$arUser['0']['PASSWORD']);
-
+		$isPassCorrect = password_verify($pass,password_hash($arUser['0']['PASSWORD'],PASSWORD_DEFAULT));
 		if ( $isPassCorrect )
 		{
 			$obUser->Authorize($arUser['0']['ID']);

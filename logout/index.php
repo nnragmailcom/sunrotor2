@@ -4,8 +4,8 @@
 	'type' => 'mysql',
 	'name' => 'sunrotor',
 	'host' => '127.0.0.1',
-	'user' => 'root',
-	'password' => ''
+	'user' => 'crs',
+	'password' => '@Center12Of12Cyclone12@'
 ]);
 $user->logOut();
 redirect('/');

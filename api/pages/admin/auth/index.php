@@ -16,11 +16,12 @@ elseif ( $_REQUEST['is_ajax'] == 'Y' )
 		$className = "core\sunrotor\classes\\" . ucfirst($queryPage) . 'Page';
 		if ( !class_exists($className) )
 		{
+			//die($className);
 			redirect('/404.php', '404');
 		}
 		$obView = new $className();
 		$page = new core\sunrotor\classes\Page($obView);
 		$page->generate($data);
-	
+
 
 }
